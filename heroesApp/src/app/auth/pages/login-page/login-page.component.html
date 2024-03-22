@@ -1,1 +1,22 @@
-<p>login-page works!</p>
+<div class="flex flex-column">
+  <span class="text-lg mb-4">Login</span>
+
+  <mat-form-field appearance="fill">
+    <mat-label>User</mat-label>
+    <input type="text" name="user" id="user" placeholder="User name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Type Password"
+    />
+  </mat-form-field>
+
+  <button mat-button mat-flat-button color="primary">
+    <span>Login</span>
+  </button>
+</div>
