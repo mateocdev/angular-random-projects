@@ -19,13 +19,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
   exports: [
     MatAutocompleteModule,
-
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule,
     MatGridListModule,
     MatIconModule,
     MatInputModule,
@@ -35,6 +33,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatSnackBarModule,
     MatToolbarModule,
-  ],
+  ]
 })
-export class MaterialModule {}
+export class MaterialModule { }
