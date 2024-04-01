@@ -166,6 +166,33 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "vkfXF5e",
+      "superhero": "BLACK",
+      "publisher": "DC Comics",
+      "alter_ego": "programmer",
+      "first_appearance": "cobrando",
+      "characters": "programmer",
+      "alt_img": "https://upload.wikimedia.org/wikipedia/en/9/9f/Black_Panther_OS_Vol_1_2.png"
+    },
+    {
+      "id": "vK_bSi6",
+      "superhero": "Mateo",
+      "publisher": "DC Comics",
+      "alter_ego": "programmer",
+      "first_appearance": "cobrando",
+      "characters": "programmer",
+      "alt_img": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F02%2Fmarvel-black-panther-history-month-comics-deal-001.jpg?cbr=1&q=90"
+    },
+    {
+      "id": "pEeu6TY",
+      "superhero": "asdasd",
+      "publisher": "Marvel Comics",
+      "alter_ego": "asdasd",
+      "first_appearance": "asdasd",
+      "characters": "asdads",
+      "alt_img": "https://upload.wikimedia.org/wikipedia/en/9/9f/Black_Panther_OS_Vol_1_2.png"
     }
   ]
 }
