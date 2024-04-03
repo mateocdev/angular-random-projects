@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute, Router } from "@angular/router";
 import { switchMap } from "rxjs";
+import { ConfirmDialogComponent } from "../../components/confirm-dialog/confirm-dialog.component";
 import { Hero, Publisher } from "../../interfaces/hero.interface";
 import { HeroesService } from "../../services/heroes.service";
 
@@ -30,11 +32,25 @@ export class NewPageComponent {
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   get currentHero(): Hero {
     return this.heroForm.value as Hero;
+  }
+
+  onDeleteHero() {
+    if (!this.currentHero.id) return;
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { ...this.currentHero },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (!result) return;
+      this.heroesService.deleteHero(this.currentHero.id!).subscribe((resp) => {
+        this.router.navigateByUrl("/heroes");
+      });
+    });
   }
 
   ngOnInit(): void {
