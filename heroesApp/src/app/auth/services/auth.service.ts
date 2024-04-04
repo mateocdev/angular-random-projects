@@ -5,7 +5,7 @@ import { environments } from "src/environments/environments";
 import { User } from "../interfaces/user.interface";
 
 @Injectable({ providedIn: "root" })
-export class ServiceNameService {
+export class AuthService {
   private baseUrl = environments.baseUrl;
   private user?: User;
 
@@ -21,5 +21,10 @@ export class ServiceNameService {
       tap((user) => (this.user = user)),
       tap((user) => localStorage.setItem("user", JSON.stringify(user.id)))
     );
+  }
+
+  logout(): void {
+    this.user = undefined;
+    localStorage.clear();
   }
 }
