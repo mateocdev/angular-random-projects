@@ -22,6 +22,7 @@
           class="form-check-input"
           type="radio"
           value="F"
+          formControlName="gender"
           id="radioFemenino"
         />
         <label class="form-check-label" for="radioFemenino"> Femenino </label>
@@ -62,7 +63,10 @@
           Términos y condiciones de uso
         </label>
       </div>
-      <span class="form-text text-danger">
+      <span
+        class="form-text text-danger"
+        *ngIf="getFieldError('termsAndConditions')"
+      >
         Debe de aceptar las condiciones de uso
       </span>
     </div>
@@ -77,15 +81,26 @@
 </form>
 
 <h5>Valor del formulario</h5>
-<pre>{{ "object" | json }}</pre>
-<br />
+<span>Valid</span>
+<pre>{{ myForm.valid | json }}</pre>
 
-<h5>Persona</h5>
-<pre>{{ "object" | json }}</pre>
-<br />
+<span>Pristine</span>
+<pre>{{ myForm.pristine | json }}</pre>
 
-<h5>Valid</h5>
-<pre>{{ "object" | json }}</pre>
+<span>Touched</span>
+<pre>{{ myForm.touched | json }}</pre>
+
+<span>Value</span>
+<pre>{{ myForm.value | json }}</pre>
+
+<span>Precio</span>
+<pre>{{ myForm.controls["gender"].value | json }}</pre>
+
+<span>Precio - Errors</span>
+<pre>{{ myForm.controls["wantsNotifications"].errors | json }}</pre>
+
+<span>Producto</span>
+<pre>{{ myForm.controls["termsAndConditions"].value | json }}</pre>
 
 <!-- <h5>Términos</h5> -->
 <!-- <pre>{{ myForm.controls?.terminos?.errors | json }}</pre> -->
