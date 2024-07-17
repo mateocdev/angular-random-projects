@@ -6,6 +6,11 @@ import {
   ViewChild,
 } from '@angular/core';
 import { LngLat, Map, Marker } from 'mapbox-gl';
+
+interface MarkerAndColor {
+  color: string;
+  marker: Marker;
+}
 @Component({
   templateUrl: './markers-page.component.html',
   styleUrl: './markers-page.component.css',
@@ -13,6 +18,7 @@ import { LngLat, Map, Marker } from 'mapbox-gl';
 export class MarkersPageComponent implements AfterViewInit, OnDestroy {
   constructor() {}
   @ViewChild('map') divMap?: ElementRef;
+  public markers: MarkerAndColor[] = [];
 
   public zoom: number = 10;
   public map?: Map;
@@ -52,6 +58,23 @@ export class MarkersPageComponent implements AfterViewInit, OnDestroy {
     })
       .setLngLat(lngLat)
       .addTo(this.map);
+    this.markers.push({
+      color,
+      marker,
+    });
+  }
+
+  removeMarker(index: number) {
+    const marker = this.markers[index];
+    marker.marker.remove();
+    this.markers.splice(index, 1);
+  }
+
+  flyTo(marker: Marker) {
+    this.map?.flyTo({
+      zoom: 15,
+      center: marker.getLngLat(),
+    });
   }
 
   ngOnDestroy(): void {
