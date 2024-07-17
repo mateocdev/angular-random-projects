@@ -35,6 +35,25 @@ export class MarkersPageComponent implements AfterViewInit, OnDestroy {
       .setLngLat([this.lng, this.lat])
       .addTo(this.map);
   }
+
+  createMarker() {
+    if (!this.map) throw new Error('map is not defined');
+    const color = '#xxxxxx'.replace(/x/g, (y) =>
+      ((Math.random() * 16) | 0).toString(16)
+    );
+    const lngLat = this.map?.getCenter();
+    this.addMarker(lngLat, color);
+  }
+  addMarker(lngLat: LngLat, color: string) {
+    if (!this.map) throw new Error('map is not defined');
+    const marker = new Marker({
+      color,
+      draggable: true,
+    })
+      .setLngLat(lngLat)
+      .addTo(this.map);
+  }
+
   ngOnDestroy(): void {
     this.map?.remove();
   }
