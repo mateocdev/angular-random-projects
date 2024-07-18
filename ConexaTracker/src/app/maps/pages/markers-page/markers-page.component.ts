@@ -25,7 +25,7 @@ export class MarkersPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild('map') divMap?: ElementRef;
   public markers: MarkerAndColor[] = [];
 
-  public zoom: number = 10;
+  public zoom: number = 14;
   public map?: Map;
   public lat: number = 4.742518713364163;
   public lng: number = -74.05554665997872;
