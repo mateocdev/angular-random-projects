@@ -15,13 +15,12 @@ import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.
 @NgModule({
   declarations: [
     MiniMapComponent,
-    SideMenuComponent,
     MapsLayoutComponent,
     FullScreenPageComponent,
     MarkersPageComponent,
     PropertiesPageComponent,
     ZoomRangePageComponent,
   ],
-  imports: [CommonModule, MapsRoutingModule],
+  imports: [CommonModule, MapsRoutingModule, SideMenuComponent],
 })
 export class MapsModule {}
